@@ -18,13 +18,11 @@ path = (QCoreApplication::applicationDirPath()+"/saves/");
     ui->setupUi(this);
     setWindowTitle("");
 
-
-
-
     QShortcut* shortcutUp = new QShortcut(QKeySequence(Qt::Key_Up), this);
     QShortcut* shortcutDown = new QShortcut(QKeySequence(Qt::Key_Down), this);
     QShortcut* shortcutRec = new QShortcut(QKeySequence(Qt::SHIFT+Qt::Key_R), this);
     QShortcut* shortcutMod = new QShortcut(QKeySequence(Qt::SHIFT+Qt::Key_M), this);
+
     connect (shortcutUp,   SIGNAL(activated()), this, SLOT(prev()));
     connect (shortcutDown, SIGNAL(activated()), this, SLOT(next()));
     connect (shortcutRec,  SIGNAL(activated()), this, SLOT(rec()));
@@ -298,6 +296,25 @@ void MainWindow::readSettings()
 void MainWindow::closeEvent(QCloseEvent *)
 {
         writeSettings();
+}
+
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key()== 87) red(65280);
+    if (event->key()== 88) green(65280);
+    if (event->key()== 67) blue(65280);
+    if (event->key()== 86) white(65280);
+    if (event->key()== 66) amber(65280);
+}
+
+void MainWindow::keyReleaseEvent(QKeyEvent *event)
+{
+    if (event->key()== 87) red(0);
+    if (event->key()== 88) green(0);
+    if (event->key()== 67) blue(0);
+    if (event->key()== 86) white(0);
+    if (event->key()== 66) amber(0);
 }
 
 void MainWindow::ouvrirDial()

@@ -6,6 +6,7 @@
 #include <QHostAddress>
 #include <QShortcut>
 #include <QUdpSocket>
+#include <QKeyEvent>
 #include "dialogno.h"
 
 #include "oscpkt.hh"
@@ -55,6 +56,8 @@ private slots:
    void readSettings();
 
    void closeEvent(QCloseEvent *);
+   void keyPressEvent(QKeyEvent *event);
+   void keyReleaseEvent(QKeyEvent *event);
 
 private:
     Ui::MainWindow *ui;
