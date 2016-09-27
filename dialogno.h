@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <QSpinBox>
+#include <QLineEdit>
+#include <QCheckBox>
 
 namespace Ui {
 class DialogNo;
@@ -14,7 +16,12 @@ class DialogNo : public QDialog
 
 public:
     explicit DialogNo(QWidget *parent = 0);
-     QList<QSpinBox*> *spinList;
+
+     QList<QLineEdit*> *lineList;
+     QList<QLineEdit*> *lineTxtList;
+     QList<QCheckBox*> *checkList;
+     QList<QSpinBox*>  *spinList;
+
     ~DialogNo();
 
 private:

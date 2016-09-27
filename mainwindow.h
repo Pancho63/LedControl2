@@ -23,6 +23,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+
     ~MainWindow();
 
 
@@ -46,6 +47,8 @@ private slots:
    void line1(bool);
    void line2(bool);
    void line3(bool);
+   void line4(bool);
+   void line5(bool);
 
    void rec();
    void modify();
@@ -61,9 +64,10 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QUdpSocket   *udpSocketSend;
-    QButtonGroup* group;
-    DialogNo *dial;
+    QUdpSocket     *udpSocketSend;
+    QButtonGroup   *group;
+    DialogNo       *dial;
+    QList<QPushButton*> *groupDeGroupe;
 };
 
 #endif // MAINWINDOW_H
