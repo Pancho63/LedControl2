@@ -58,16 +58,18 @@ private slots:
    void writeSettings();
    void readSettings();
 
-   void closeEvent(QCloseEvent *);
-   void keyPressEvent(QKeyEvent *event);
-   void keyReleaseEvent(QKeyEvent *event);
-
 private:
     Ui::MainWindow *ui;
     QUdpSocket     *udpSocketSend;
     QButtonGroup   *group;
     DialogNo       *dial;
     QList<QPushButton*> *groupDeGroupe;
+
+
+protected:
+    void closeEvent(QCloseEvent *);
+    void keyPressEvent(QKeyEvent *event);
+    void keyReleaseEvent(QKeyEvent *event);
 };
 
 #endif // MAINWINDOW_H

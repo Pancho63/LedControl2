@@ -28,7 +28,7 @@ private:
     Ui::DialogNo *ui;
 
 
-private slots:
+protected:
     void closeEvent(QCloseEvent *);
 };
 

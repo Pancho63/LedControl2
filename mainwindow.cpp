@@ -3,8 +3,6 @@
 #include <QDebug>
 #include <QSettings>
 
-
-
 bool selection[24];
 int  selectionCh[24];
 bool visibles[24];
@@ -12,6 +10,8 @@ QString messagesOsc[6];
 QString namesSlider[6];
 QString path ;
 bool exist = false;
+
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -21,10 +21,10 @@ path = (QCoreApplication::applicationDirPath()+"/saves/");
     ui->setupUi(this);
     setWindowTitle("");
 
-    QShortcut* shortcutUp = new QShortcut(QKeySequence(Qt::Key_Up), this);
-    QShortcut* shortcutDown = new QShortcut(QKeySequence(Qt::Key_Down), this);
-    QShortcut* shortcutRec = new QShortcut(QKeySequence(Qt::SHIFT+Qt::Key_R), this);
-    QShortcut* shortcutMod = new QShortcut(QKeySequence(Qt::SHIFT+Qt::Key_M), this);
+    QShortcut* shortcutUp =   new QShortcut(QKeySequence(Qt::Key_Up),          this);
+    QShortcut* shortcutDown = new QShortcut(QKeySequence(Qt::Key_Down),        this);
+    QShortcut* shortcutRec =  new QShortcut(QKeySequence(Qt::SHIFT+Qt::Key_R), this);
+    QShortcut* shortcutMod =  new QShortcut(QKeySequence(Qt::SHIFT+Qt::Key_M), this);
 
     connect (shortcutUp,   SIGNAL(activated()), this, SLOT(prev()));
     connect (shortcutDown, SIGNAL(activated()), this, SLOT(next()));
@@ -75,9 +75,9 @@ path = (QCoreApplication::applicationDirPath()+"/saves/");
     ui->label_5->setText(namesSlider[4]);
     ui->label_6->setText(namesSlider[5]);
 
-    connect (group,             SIGNAL(buttonToggled(int,bool)), this, SLOT(selected(int,bool)));
-    connect (ui->pushButton_Deselect,    SIGNAL(pressed()), this, SLOT(reset()));
-    connect (ui->pushButton_AllZero, SIGNAL(pressed()), this, SLOT(raz()));
+    connect (group,                   SIGNAL(buttonToggled(int,bool)), this, SLOT(selected(int,bool)));
+    connect (ui->pushButton_Deselect, SIGNAL(pressed()), this,               SLOT(reset()));
+    connect (ui->pushButton_AllZero,  SIGNAL(pressed()), this,               SLOT(raz()));
 
     connect (ui->verticalSlider,   SIGNAL(sliderMoved(int)), this, SLOT(red(int)));
     connect (ui->verticalSlider_2, SIGNAL(sliderMoved(int)), this, SLOT(green(int)));
@@ -93,8 +93,8 @@ path = (QCoreApplication::applicationDirPath()+"/saves/");
     connect (ui->pushButton_Group4, SIGNAL(toggled(bool)), this, SLOT(line4(bool)));
     connect (ui->pushButton_Group5, SIGNAL(toggled(bool)), this, SLOT(line5(bool)));
 
-    connect (ui->pushButton_Rec, SIGNAL(pressed()), this, SLOT(rec()));
-    connect (ui->pushButton_Mod, SIGNAL(pressed()), this, SLOT(modify()));
+    connect (ui->pushButton_Rec,  SIGNAL(pressed()), this, SLOT(rec()));
+    connect (ui->pushButton_Mod,  SIGNAL(pressed()), this, SLOT(modify()));
     connect (ui->pushButton_Prev, SIGNAL(pressed()), this, SLOT(prev()));
     connect (ui->pushButton_Next, SIGNAL(pressed()), this, SLOT(next()));
 
@@ -134,7 +134,8 @@ void MainWindow::sendOSC(Message msg)
     }
 
 void MainWindow::red(int value)
-{unsigned short int shValue = value;
+{
+    unsigned short int shValue = value;
     for (int i=0; i<24 ; i++)
     {
        if (selection[i])
@@ -144,7 +145,8 @@ void MainWindow::red(int value)
 }}
 
 void MainWindow::green(int value)
-{unsigned short int shValue = value;
+{
+    unsigned short int shValue = value;
     for (int i=0; i<24 ; i++)
     {
        if (selection[i])
@@ -154,7 +156,8 @@ void MainWindow::green(int value)
 }}
 
 void MainWindow::blue(int value)
-{unsigned short int shValue = value;
+{
+    unsigned short int shValue = value;
     for (int i=0; i<24 ; i++)
     {
        if (selection[i])
@@ -164,7 +167,8 @@ void MainWindow::blue(int value)
 }}
 
 void MainWindow::white(int value)
-{unsigned short int shValue = value;
+{
+    unsigned short int shValue = value;
     for (int i=0; i<24 ; i++)
     {
        if (selection[i])
@@ -174,7 +178,8 @@ void MainWindow::white(int value)
 }}
 
 void MainWindow::amber(int value)
-{unsigned short int shValue = value;
+{
+    unsigned short int shValue = value;
     for (int i=0; i<24 ; i++)
     {
        if (selection[i])
@@ -184,7 +189,8 @@ void MainWindow::amber(int value)
 }}
 
 void MainWindow::strobe(int value)
-{unsigned short int shValue = value;
+{
+    unsigned short int shValue = value;
     for (int i=0; i<24 ; i++)
     {
        if (selection[i])
@@ -197,9 +203,9 @@ void MainWindow::master(int value)
     for (int i=0; i<24 ; i++)
     {
        if (selection[i])
-       {int ch = group->button(i)->text().toInt();
+       {
+           int ch = group->button(i)->text().toInt();
            Message msg("/circ/level"); msg.pushInt32(ch); msg.pushInt32(value); sendOSC(msg);
-
        }
 }}
 
@@ -290,7 +296,7 @@ void MainWindow::line5(bool vrai)
 }
 void MainWindow::raz()
 {
-    ui->verticalSlider->setValue(0);
+    ui->verticalSlider  ->setValue(0);
     ui->verticalSlider_2->setValue(0);
     ui->verticalSlider_3->setValue(0);
     ui->verticalSlider_4->setValue(0);
@@ -374,11 +380,11 @@ void MainWindow::readSettings()
     group->button(i)->setVisible(visibles[i]);
     }
 
-    messagesOsc[0]=settings.value("msg0", "/COLOUR/RED").toString();
-    messagesOsc[1]=settings.value("msg1", "/COLOUR/GREEN").toString();
-    messagesOsc[2]=settings.value("msg2", "/COLOUR/BLUE").toString();
-    messagesOsc[3]=settings.value("msg3", "/COLOUR/WHITE").toString();
-    messagesOsc[4]=settings.value("msg4", "/COLOUR/AMBER").toString();
+    messagesOsc[0]=settings.value("msg0", "/COLOUR/RED"   ).toString();
+    messagesOsc[1]=settings.value("msg1", "/COLOUR/GREEN" ).toString();
+    messagesOsc[2]=settings.value("msg2", "/COLOUR/BLUE"  ).toString();
+    messagesOsc[3]=settings.value("msg3", "/COLOUR/WHITE" ).toString();
+    messagesOsc[4]=settings.value("msg4", "/COLOUR/AMBER" ).toString();
     messagesOsc[5]=settings.value("msg5", "/EFFECT/STROBE").toString();
 
     namesSlider[0]=settings.value("name0", "Rouge ").toString();
@@ -390,7 +396,7 @@ void MainWindow::readSettings()
 
     settings.beginGroup("MainWindow");
     resize(settings.value("size", QSize(889, 125)).toSize());
-    move(settings.value("pos", QPoint(187, 23)).toPoint());
+    move  (settings.value("pos",  QPoint(187, 23)).toPoint());
     settings.endGroup();
 
 }

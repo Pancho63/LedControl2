@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1243</width>
-    <height>154</height>
+    <width>1228</width>
+    <height>186</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -871,35 +871,6 @@
      </layout>
     </item>
    </layout>
-   <zorder>line</zorder>
-   <zorder>verticalSlider</zorder>
-   <zorder>verticalSlider_2</zorder>
-   <zorder>verticalSlider_3</zorder>
-   <zorder>verticalSlider_4</zorder>
-   <zorder>verticalSlider_5</zorder>
-   <zorder>verticalSlider_6</zorder>
-   <zorder>line_3</zorder>
-   <zorder>verticalSlider_7</zorder>
-   <zorder>label_1</zorder>
-   <zorder>label_2</zorder>
-   <zorder>label_3</zorder>
-   <zorder>label_4</zorder>
-   <zorder>label_5</zorder>
-   <zorder>label_6</zorder>
-   <zorder>label_7</zorder>
-   <zorder>pushButton_Deselect</zorder>
-   <zorder>pushButton_AllZero</zorder>
-   <zorder>pushButton_Rec</zorder>
-   <zorder>pushButton_Mod</zorder>
-   <zorder>pushButton_Next</zorder>
-   <zorder>pushButton_Prev</zorder>
-   <zorder>pushButton_Edit</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>line_4</zorder>
-   <zorder>label_5</zorder>
-   <zorder>layoutWidget_2</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
