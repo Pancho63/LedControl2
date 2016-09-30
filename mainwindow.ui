@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1228</width>
+    <width>1482</width>
     <height>186</height>
    </rect>
   </property>
@@ -317,56 +317,29 @@
     </item>
     <item row="0" column="3" rowspan="2">
      <layout class="QGridLayout" name="gridLayout_2">
-      <property name="sizeConstraint">
-       <enum>QLayout::SetDefaultConstraint</enum>
-      </property>
-      <property name="leftMargin">
-       <number>18</number>
-      </property>
-      <item row="0" column="11" rowspan="2">
-       <widget class="Line" name="line_3">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="Line" name="line_5">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="8">
-       <widget class="QLabel" name="label_5">
+      <item row="1" column="2">
+       <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Ambre</string>
+         <string>Vert</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="12" rowspan="2">
-       <widget class="Line" name="line_10">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_1">
+      <item row="1" column="14">
+       <widget class="QLabel" name="label_8">
         <property name="text">
-         <string>Red</string>
+         <string>Autre2</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="4">
-       <widget class="QLabel" name="label_3">
+      <item row="1" column="18">
+       <widget class="QLabel" name="label_10">
         <property name="text">
-         <string>Bleu</string>
+         <string>Autre4</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="6">
-       <widget class="QSlider" name="verticalSlider_4">
+      <item row="0" column="14">
+       <widget class="QSlider" name="verticalSlider_8">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -376,82 +349,6 @@
         <property name="maximum">
          <number>65280</number>
         </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="10">
-       <widget class="QLabel" name="label_6">
-        <property name="text">
-         <string>Strobe</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="5">
-       <widget class="Line" name="line_7">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="8">
-       <widget class="QSlider" name="verticalSlider_5">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="maximum">
-         <number>65280</number>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="4">
-       <widget class="QSlider" name="verticalSlider_3">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="maximum">
-         <number>65280</number>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="13">
-       <widget class="QSlider" name="verticalSlider_7">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="maximum">
-         <number>255</number>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="13">
-       <widget class="QLabel" name="label_7">
-        <property name="text">
-         <string>Master</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3">
-       <widget class="Line" name="line_6">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -476,8 +373,84 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="7">
-       <widget class="Line" name="line_8">
+      <item row="1" column="20">
+       <widget class="QLabel" name="label_Master">
+        <property name="text">
+         <string>Master</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="10">
+       <widget class="QSlider" name="verticalSlider_6">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximum">
+         <number>65280</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="15">
+       <widget class="Line" name="lineSl8">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="6">
+       <widget class="QSlider" name="verticalSlider_4">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximum">
+         <number>65280</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="8">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Ambre</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_1">
+        <property name="text">
+         <string>Red</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="QSlider" name="verticalSlider_3">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximum">
+         <number>65280</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="5">
+       <widget class="Line" name="lineSl3">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -502,6 +475,48 @@
         </property>
        </widget>
       </item>
+      <item row="0" column="1">
+       <widget class="Line" name="lineSl1">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Bleu</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="9">
+       <widget class="Line" name="lineSl5">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="17">
+       <widget class="Line" name="lineSl9">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="11">
+       <widget class="Line" name="lineSl6">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="16">
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>Autre3</string>
+        </property>
+       </widget>
+      </item>
       <item row="1" column="6">
        <widget class="QLabel" name="label_4">
         <property name="text">
@@ -509,8 +524,8 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="10">
-       <widget class="QSlider" name="verticalSlider_6">
+      <item row="0" column="18">
+       <widget class="QSlider" name="verticalSlider_10">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -525,17 +540,109 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="2">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Vert</string>
+      <item row="0" column="12">
+       <widget class="QSlider" name="verticalSlider_7">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximum">
+         <number>65280</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
         </property>
        </widget>
       </item>
-      <item row="0" column="9">
-       <widget class="Line" name="line_9">
+      <item row="0" column="16">
+       <widget class="QSlider" name="verticalSlider_9">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximum">
+         <number>65280</number>
+        </property>
         <property name="orientation">
          <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="13">
+       <widget class="Line" name="lineSl7">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="8">
+       <widget class="QSlider" name="verticalSlider_5">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximum">
+         <number>65280</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="19" rowspan="2">
+       <widget class="Line" name="line_10">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="20">
+       <widget class="QSlider" name="verticalSlider_Master">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="Line" name="lineSl2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="10">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Strobe</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="7">
+       <widget class="Line" name="lineSl4">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="12">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>Autre1</string>
         </property>
        </widget>
       </item>

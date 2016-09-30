@@ -7,6 +7,7 @@
 extern int  selectionCh[24];
 extern QString messagesOsc[6];
 extern QString namesSlider[6];
+extern bool visiblesSliders[10];
 extern bool visibles[24];
 extern bool exist;
 
@@ -78,37 +79,64 @@ DialogNo::DialogNo(QWidget *parent) :
     checkList->append(ui->checkBox_22);
     checkList->append(ui->checkBox_23);
 
-   for (int i=0; i<24 ; i++)
-    {
-      checkList->at(i)->setChecked(visibles[i]);
-    }
+    for (int i=0; i<24 ; i++)
+     {
+       checkList->at(i)->setChecked(visibles[i]);
+     }
+
+
 
 
     lineList = new QList<QLineEdit*>;
-    lineList->append(ui->lineEdit);
-    lineList->append(ui->lineEdit_2);
-    lineList->append(ui->lineEdit_3);
-    lineList->append(ui->lineEdit_4);
-    lineList->append(ui->lineEdit_5);
-    lineList->append(ui->lineEdit_6);
+    lineList->append(ui->lineEditN1);
+    lineList->append(ui->lineEditN2);
+    lineList->append(ui->lineEditN3);
+    lineList->append(ui->lineEditN4);
+    lineList->append(ui->lineEditN5);
+    lineList->append(ui->lineEditN6);
+    lineList->append(ui->lineEditN7);
+    lineList->append(ui->lineEditN8);
+    lineList->append(ui->lineEditN9);
+    lineList->append(ui->lineEditN10);
 
-    for (int i=0; i<6 ; i++)
+    for (int i=0; i<10 ; i++)
     {
       lineList->at(i)->setText(messagesOsc[i]);
     }
 
     lineTxtList = new QList<QLineEdit*>;
-    lineTxtList->append(ui->lineEdit_7);
-    lineTxtList->append(ui->lineEdit_8);
-    lineTxtList->append(ui->lineEdit_9);
-    lineTxtList->append(ui->lineEdit_10);
-    lineTxtList->append(ui->lineEdit_11);
-    lineTxtList->append(ui->lineEdit_12);
+    lineTxtList->append(ui->lineEditT1);
+    lineTxtList->append(ui->lineEditT2);
+    lineTxtList->append(ui->lineEditT3);
+    lineTxtList->append(ui->lineEditT4);
+    lineTxtList->append(ui->lineEditT5);
+    lineTxtList->append(ui->lineEditT6);
+    lineTxtList->append(ui->lineEditT7);
+    lineTxtList->append(ui->lineEditT8);
+    lineTxtList->append(ui->lineEditT9);
+    lineTxtList->append(ui->lineEditT10);
 
-    for (int i=0; i<6 ; i++)
+    for (int i=0; i<10 ; i++)
     {
       lineTxtList->at(i)->setText(namesSlider[i]);
     }
+
+    checkSliderList = new QList<QCheckBox*>;
+    checkSliderList->append(ui->checkBoxS1);
+    checkSliderList->append(ui->checkBoxS2);
+    checkSliderList->append(ui->checkBoxS3);
+    checkSliderList->append(ui->checkBoxS4);
+    checkSliderList->append(ui->checkBoxS5);
+    checkSliderList->append(ui->checkBoxS6);
+    checkSliderList->append(ui->checkBoxS7);
+    checkSliderList->append(ui->checkBoxS8);
+    checkSliderList->append(ui->checkBoxS9);
+    checkSliderList->append(ui->checkBoxS10);
+
+    for (int i=0; i<10 ; i++)
+     {
+       checkSliderList->at(i)->setChecked(visiblesSliders[i]);
+     }
 }
 
 DialogNo::~DialogNo()

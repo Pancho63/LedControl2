@@ -21,7 +21,7 @@ public:
      QList<QLineEdit*> *lineTxtList;
      QList<QCheckBox*> *checkList;
      QList<QSpinBox*>  *spinList;
-
+     QList<QCheckBox*> *checkSliderList;
     ~DialogNo();
 
 private:

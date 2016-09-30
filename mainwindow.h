@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QPushButton>
+#include <QSlider>
+#include <QLabel>
 #include <QHostAddress>
 #include <QShortcut>
 #include <QUdpSocket>
@@ -36,12 +38,16 @@ private slots:
    void ouvrirDial();
    void maj();
 
-   void red(int);
-   void green(int);
-   void blue(int);
-   void white(int);
-   void amber(int);
-   void strobe(int);
+   void mess1(int);
+   void mess2(int);
+   void mess3(int);
+   void mess4(int);
+   void mess5(int);
+   void mess6(int);
+   void mess7(int);
+   void mess8(int);
+   void mess9(int);
+   void mess10(int);
    void master(int);
 
    void line1(bool);
@@ -64,6 +70,8 @@ private:
     QButtonGroup   *group;
     DialogNo       *dial;
     QList<QPushButton*> *groupDeGroupe;
+    QList<QSlider*> *groupDeSliders;
+    QList<QLabel*> *groupDeLabelSlid;
 
 
 protected:

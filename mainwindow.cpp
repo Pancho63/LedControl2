@@ -6,8 +6,9 @@
 bool selection[24];
 int  selectionCh[24];
 bool visibles[24];
-QString messagesOsc[6];
-QString namesSlider[6];
+QString messagesOsc[10];
+QString namesSlider[10];
+bool visiblesSliders[10];
 QString path ;
 bool exist = false;
 
@@ -65,6 +66,30 @@ path = (QCoreApplication::applicationDirPath()+"/saves/");
         groupDeGroupe->append(ui->pushButton_Group4);
         groupDeGroupe->append(ui->pushButton_Group5);
 
+        groupDeSliders = new QList<QSlider*>;
+        groupDeSliders->append(ui->verticalSlider);
+        groupDeSliders->append(ui->verticalSlider_2);
+        groupDeSliders->append(ui->verticalSlider_3);
+        groupDeSliders->append(ui->verticalSlider_4);
+        groupDeSliders->append(ui->verticalSlider_5);
+        groupDeSliders->append(ui->verticalSlider_6);
+        groupDeSliders->append(ui->verticalSlider_7);
+        groupDeSliders->append(ui->verticalSlider_8);
+        groupDeSliders->append(ui->verticalSlider_9);
+        groupDeSliders->append(ui->verticalSlider_10);
+
+        groupDeLabelSlid = new QList<QLabel*>;
+        groupDeLabelSlid->append(ui->label_1);
+        groupDeLabelSlid->append(ui->label_2);
+        groupDeLabelSlid->append(ui->label_3);
+        groupDeLabelSlid->append(ui->label_4);
+        groupDeLabelSlid->append(ui->label_5);
+        groupDeLabelSlid->append(ui->label_6);
+        groupDeLabelSlid->append(ui->label_7);
+        groupDeLabelSlid->append(ui->label_8);
+        groupDeLabelSlid->append(ui->label_9);
+        groupDeLabelSlid->append(ui->label_10);
+
 
     readSettings();
 
@@ -74,18 +99,27 @@ path = (QCoreApplication::applicationDirPath()+"/saves/");
     ui->label_4->setText(namesSlider[3]);
     ui->label_5->setText(namesSlider[4]);
     ui->label_6->setText(namesSlider[5]);
+    ui->label_7->setText(namesSlider[6]);
+    ui->label_8->setText(namesSlider[7]);
+    ui->label_9->setText(namesSlider[8]);
+    ui->label_10->setText(namesSlider[9]);
+    ui->label_Master->setText("Master");
 
     connect (group,                   SIGNAL(buttonToggled(int,bool)), this, SLOT(selected(int,bool)));
     connect (ui->pushButton_Deselect, SIGNAL(pressed()), this,               SLOT(reset()));
     connect (ui->pushButton_AllZero,  SIGNAL(pressed()), this,               SLOT(raz()));
 
-    connect (ui->verticalSlider,   SIGNAL(sliderMoved(int)), this, SLOT(red(int)));
-    connect (ui->verticalSlider_2, SIGNAL(sliderMoved(int)), this, SLOT(green(int)));
-    connect (ui->verticalSlider_3, SIGNAL(sliderMoved(int)), this, SLOT(blue(int)));
-    connect (ui->verticalSlider_4, SIGNAL(sliderMoved(int)), this, SLOT(white(int)));
-    connect (ui->verticalSlider_5, SIGNAL(sliderMoved(int)), this, SLOT(amber(int)));
-    connect (ui->verticalSlider_6, SIGNAL(sliderMoved(int)), this, SLOT(strobe(int)));
-    connect (ui->verticalSlider_7, SIGNAL(sliderMoved(int)), this, SLOT(master(int)));
+    connect (ui->verticalSlider,   SIGNAL(sliderMoved(int)), this, SLOT(mess1(int)));
+    connect (ui->verticalSlider_2, SIGNAL(sliderMoved(int)), this, SLOT(mess2(int)));
+    connect (ui->verticalSlider_3, SIGNAL(sliderMoved(int)), this, SLOT(mess3(int)));
+    connect (ui->verticalSlider_4, SIGNAL(sliderMoved(int)), this, SLOT(mess4(int)));
+    connect (ui->verticalSlider_5, SIGNAL(sliderMoved(int)), this, SLOT(mess5(int)));
+    connect (ui->verticalSlider_6, SIGNAL(sliderMoved(int)), this, SLOT(mess6(int)));
+    connect (ui->verticalSlider_7, SIGNAL(sliderMoved(int)), this, SLOT(mess7(int)));
+    connect (ui->verticalSlider_8, SIGNAL(sliderMoved(int)), this, SLOT(mess8(int)));
+    connect (ui->verticalSlider_9, SIGNAL(sliderMoved(int)), this, SLOT(mess9(int)));
+    connect (ui->verticalSlider_10, SIGNAL(sliderMoved(int)), this, SLOT(mess10(int)));
+    connect (ui->verticalSlider_Master, SIGNAL(sliderMoved(int)), this, SLOT(master(int)));
 
     connect (ui->pushButton_Group1, SIGNAL(toggled(bool)), this, SLOT(line1(bool)));
     connect (ui->pushButton_Group2, SIGNAL(toggled(bool)), this, SLOT(line2(bool)));
@@ -133,7 +167,7 @@ void MainWindow::sendOSC(Message msg)
     udpSocketSend->writeDatagram(pw.packetData(), pw.packetSize(), QHostAddress("127.0.0.1"), 7000);
     }
 
-void MainWindow::red(int value)
+void MainWindow::mess1(int value)
 {
     unsigned short int shValue = value;
     for (int i=0; i<24 ; i++)
@@ -144,7 +178,7 @@ void MainWindow::red(int value)
        }
 }}
 
-void MainWindow::green(int value)
+void MainWindow::mess2(int value)
 {
     unsigned short int shValue = value;
     for (int i=0; i<24 ; i++)
@@ -155,7 +189,7 @@ void MainWindow::green(int value)
        }
 }}
 
-void MainWindow::blue(int value)
+void MainWindow::mess3(int value)
 {
     unsigned short int shValue = value;
     for (int i=0; i<24 ; i++)
@@ -166,7 +200,7 @@ void MainWindow::blue(int value)
        }
 }}
 
-void MainWindow::white(int value)
+void MainWindow::mess4(int value)
 {
     unsigned short int shValue = value;
     for (int i=0; i<24 ; i++)
@@ -177,7 +211,7 @@ void MainWindow::white(int value)
        }
 }}
 
-void MainWindow::amber(int value)
+void MainWindow::mess5(int value)
 {
     unsigned short int shValue = value;
     for (int i=0; i<24 ; i++)
@@ -188,7 +222,7 @@ void MainWindow::amber(int value)
        }
 }}
 
-void MainWindow::strobe(int value)
+void MainWindow::mess6(int value)
 {
     unsigned short int shValue = value;
     for (int i=0; i<24 ; i++)
@@ -196,6 +230,46 @@ void MainWindow::strobe(int value)
        if (selection[i])
        {int ch = group->button(i)->text().toInt();
            Message msg("/device"); msg.pushStr(messagesOsc[5].toStdString()); msg.pushInt32(ch); msg.pushInt32(shValue); sendOSC(msg);
+       }
+}}
+void MainWindow::mess7(int value)
+{
+    unsigned short int shValue = value;
+    for (int i=0; i<24 ; i++)
+    {
+       if (selection[i])
+       {int ch = group->button(i)->text().toInt();
+           Message msg("/device"); msg.pushStr(messagesOsc[6].toStdString()); msg.pushInt32(ch); msg.pushInt32(shValue); sendOSC(msg);
+       }
+}}
+void MainWindow::mess8(int value)
+{
+    unsigned short int shValue = value;
+    for (int i=0; i<24 ; i++)
+    {
+       if (selection[i])
+       {int ch = group->button(i)->text().toInt();
+           Message msg("/device"); msg.pushStr(messagesOsc[7].toStdString()); msg.pushInt32(ch); msg.pushInt32(shValue); sendOSC(msg);
+       }
+}}
+void MainWindow::mess9(int value)
+{
+    unsigned short int shValue = value;
+    for (int i=0; i<24 ; i++)
+    {
+       if (selection[i])
+       {int ch = group->button(i)->text().toInt();
+           Message msg("/device"); msg.pushStr(messagesOsc[8].toStdString()); msg.pushInt32(ch); msg.pushInt32(shValue); sendOSC(msg);
+       }
+}}
+void MainWindow::mess10(int value)
+{
+    unsigned short int shValue = value;
+    for (int i=0; i<24 ; i++)
+    {
+       if (selection[i])
+       {int ch = group->button(i)->text().toInt();
+           Message msg("/device"); msg.pushStr(messagesOsc[9].toStdString()); msg.pushInt32(ch); msg.pushInt32(shValue); sendOSC(msg);
        }
 }}
 void MainWindow::master(int value)
@@ -218,6 +292,10 @@ void MainWindow::reset()
     ui->verticalSlider_5->setValue(0);
     ui->verticalSlider_6->setValue(0);
     ui->verticalSlider_7->setValue(0);
+    ui->verticalSlider_8->setValue(0);
+    ui->verticalSlider_9->setValue(0);
+    ui->verticalSlider_10->setValue(0);
+    ui->verticalSlider_Master->setValue(0);
 
     ui->pushButton_0->setChecked(false);
     ui->pushButton_1->setChecked(false);
@@ -303,18 +381,26 @@ void MainWindow::raz()
     ui->verticalSlider_5->setValue(0);
     ui->verticalSlider_6->setValue(0);
     ui->verticalSlider_7->setValue(0);
+    ui->verticalSlider_8->setValue(0);
+    ui->verticalSlider_9->setValue(0);
+    ui->verticalSlider_10->setValue(0);
+    ui->verticalSlider_Master->setValue(0);
 
     for (int i=0; i<24 ; i++)
     {
        if (selection[i])
        {int ch = group->button(i)->text().toInt();
-          Message  msg("/device");  msg.pushStr(messagesOsc[0].toStdString());  msg.pushInt32(ch);  msg.pushInt32(0);  sendOSC(msg);
-          Message msg1("/device"); msg1.pushStr(messagesOsc[1].toStdString()); msg1.pushInt32(ch); msg1.pushInt32(0); sendOSC(msg1);
-          Message msg2("/device"); msg2.pushStr(messagesOsc[2].toStdString()); msg2.pushInt32(ch); msg2.pushInt32(0); sendOSC(msg2);
-          Message msg3("/device"); msg3.pushStr(messagesOsc[3].toStdString()); msg3.pushInt32(ch); msg3.pushInt32(0); sendOSC(msg3);
-          Message msg4("/device"); msg4.pushStr(messagesOsc[4].toStdString()); msg4.pushInt32(ch); msg4.pushInt32(0); sendOSC(msg4);
-          Message msg5("/device"); msg5.pushStr(messagesOsc[5].toStdString()); msg5.pushInt32(ch); msg5.pushInt32(0); sendOSC(msg5);
-          Message msg6("/circ/level");                                         msg6.pushInt32(ch); msg6.pushInt32(0); sendOSC(msg6);
+          Message  msg("/device");  msg.pushStr(messagesOsc[0].toStdString());  msg.pushInt32(ch);   msg.pushInt32(0);   sendOSC(msg);
+          Message msg1("/device"); msg1.pushStr(messagesOsc[1].toStdString()); msg1.pushInt32(ch);  msg1.pushInt32(0);  sendOSC(msg1);
+          Message msg2("/device"); msg2.pushStr(messagesOsc[2].toStdString()); msg2.pushInt32(ch);  msg2.pushInt32(0);  sendOSC(msg2);
+          Message msg3("/device"); msg3.pushStr(messagesOsc[3].toStdString()); msg3.pushInt32(ch);  msg3.pushInt32(0);  sendOSC(msg3);
+          Message msg4("/device"); msg4.pushStr(messagesOsc[4].toStdString()); msg4.pushInt32(ch);  msg4.pushInt32(0);  sendOSC(msg4);
+          Message msg5("/device"); msg5.pushStr(messagesOsc[5].toStdString()); msg5.pushInt32(ch);  msg5.pushInt32(0);  sendOSC(msg5);
+          Message msg6("/device"); msg6.pushStr(messagesOsc[6].toStdString()); msg6.pushInt32(ch);  msg6.pushInt32(0);  sendOSC(msg6);
+          Message msg7("/device"); msg7.pushStr(messagesOsc[7].toStdString()); msg7.pushInt32(ch);  msg7.pushInt32(0);  sendOSC(msg7);
+          Message msg8("/device"); msg8.pushStr(messagesOsc[8].toStdString()); msg8.pushInt32(ch);  msg8.pushInt32(0);  sendOSC(msg8);
+          Message msg9("/device"); msg9.pushStr(messagesOsc[9].toStdString()); msg9.pushInt32(ch);  msg9.pushInt32(0);  sendOSC(msg9);
+          Message msg10("/circ/level");                                       msg10.pushInt32(ch); msg10.pushInt32(0); sendOSC(msg10);
        }
 }
 }
@@ -361,6 +447,10 @@ void MainWindow::writeSettings()
     settings.setValue("name3", namesSlider[3]);
     settings.setValue("name4", namesSlider[4]);
     settings.setValue("name5", namesSlider[5]);
+    for (int i=0; i<10 ; i++)
+    {
+    settings.setValue("vS"+QString::number(i), visiblesSliders[i]);
+    }
 
     settings.beginGroup("MainWindow");
     settings.setValue("size", size());
@@ -376,7 +466,6 @@ void MainWindow::readSettings()
     selectionCh[i]=settings.value("ch"+QString::number(i), i+61).toInt();
     group->button(i)->setText(QString::number(selectionCh[i]));
     visibles[i]=settings.value("v"+QString::number(i), true).toBool();
-    for (int i=0; i<24 ; i++)
     group->button(i)->setVisible(visibles[i]);
     }
 
@@ -386,6 +475,10 @@ void MainWindow::readSettings()
     messagesOsc[3]=settings.value("msg3", "/COLOUR/WHITE" ).toString();
     messagesOsc[4]=settings.value("msg4", "/COLOUR/AMBER" ).toString();
     messagesOsc[5]=settings.value("msg5", "/EFFECT/STROBE").toString();
+    messagesOsc[6]=settings.value("msg6", " "  ).toString();
+    messagesOsc[7]=settings.value("msg7", " " ).toString();
+    messagesOsc[8]=settings.value("msg8", " " ).toString();
+    messagesOsc[9]=settings.value("msg9", " ").toString();
 
     namesSlider[0]=settings.value("name0", "Rouge ").toString();
     namesSlider[1]=settings.value("name1", " Vert ").toString();
@@ -393,7 +486,17 @@ void MainWindow::readSettings()
     namesSlider[3]=settings.value("name3", "Blanc ").toString();
     namesSlider[4]=settings.value("name4", "Ambre ").toString();
     namesSlider[5]=settings.value("name5", "Strobe").toString();
+    namesSlider[6]=settings.value("name6", "Autre1").toString();
+    namesSlider[7]=settings.value("name7", "Autre2").toString();
+    namesSlider[8]=settings.value("name8", "Autre3").toString();
+    namesSlider[9]=settings.value("name9", "Autre4").toString();
 
+    for (int i=0; i<10 ; i++)
+    {
+        visiblesSliders[i]=settings.value("vS"+QString::number(i), true).toBool();
+        groupDeSliders->at(i)->setVisible(visiblesSliders[i]);
+        groupDeLabelSlid->at(i)->setVisible(visiblesSliders[i]);
+    }
     settings.beginGroup("MainWindow");
     resize(settings.value("size", QSize(889, 125)).toSize());
     move  (settings.value("pos",  QPoint(187, 23)).toPoint());
@@ -408,12 +511,12 @@ void MainWindow::closeEvent(QCloseEvent *)
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
-    if (event->key()== 87) red(65280);
-    if (event->key()== 88) green(65280);
-    if (event->key()== 67) blue(65280);
-    if (event->key()== 86) white(65280);
-    if (event->key()== 66) amber(65280);
-    if (event->key()== 78) strobe(65280);
+    if (event->key()== 87) mess1(65280);
+    if (event->key()== 88) mess2(65280);
+    if (event->key()== 67) mess3(65280);
+    if (event->key()== 86) mess4(65280);
+    if (event->key()== 66) mess5(65280);
+    if (event->key()== 78) mess6(65280);
     if (event->key()== 44) master(65280);
 
     if (event->key()== 87) ui->verticalSlider->setValue(65280);
@@ -427,12 +530,12 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
 void MainWindow::keyReleaseEvent(QKeyEvent *event)
 {
-    if (event->key()== 87) red(0);
-    if (event->key()== 88) green(0);
-    if (event->key()== 67) blue(0);
-    if (event->key()== 86) white(0);
-    if (event->key()== 66) amber(0);
-    if (event->key()== 78) strobe(0);
+    if (event->key()== 87) mess1(0);
+    if (event->key()== 88) mess2(0);
+    if (event->key()== 67) mess3(0);
+    if (event->key()== 86) mess4(0);
+    if (event->key()== 66) mess5(0);
+    if (event->key()== 78) mess6(0);
     if (event->key()== 44) master(0);
 
     if (event->key()== 87) ui->verticalSlider->setValue(0);
@@ -477,6 +580,18 @@ void MainWindow::maj()
     ui->label_4->setText(namesSlider[3]);
     ui->label_5->setText(namesSlider[4]);
     ui->label_6->setText(namesSlider[5]);
+    ui->label_7->setText(namesSlider[6]);
+    ui->label_8->setText(namesSlider[7]);
+    ui->label_9->setText(namesSlider[8]);
+    ui->label_10->setText(namesSlider[9]);
+
+    for (int i=0; i<10 ; i++)
+    {
+    visiblesSliders[i] = dial->checkSliderList->at(i)->checkState();
+    groupDeSliders->at(i)->setVisible(visiblesSliders[i]);
+    groupDeLabelSlid->at(i)->setVisible(visiblesSliders[i]);
+    }
+
 
     for (int i=0; i<24 ; i++)
     {
