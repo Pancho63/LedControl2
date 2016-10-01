@@ -10,7 +10,7 @@
 #include <QUdpSocket>
 #include <QKeyEvent>
 #include "dialogno.h"
-
+#include "rtmidi.h"
 #include "oscpkt.hh"
 
 using namespace oscpkt;
