@@ -331,46 +331,46 @@ void MainWindow::reset()
 
 void MainWindow::line1(bool vrai)
 {
-    ui->pushButton_0->setChecked(vrai);
-    ui->pushButton_1->setChecked(vrai);
-    ui->pushButton_2->setChecked(vrai);
-    ui->pushButton_3->setChecked(vrai);
-    ui->pushButton_4->setChecked(vrai);
+    if(visibles[0]) ui->pushButton_0->setChecked(vrai);
+    if(visibles[1]) ui->pushButton_1->setChecked(vrai);
+    if(visibles[2])ui->pushButton_2->setChecked(vrai);
+    if(visibles[3])ui->pushButton_3->setChecked(vrai);
+    if(visibles[4]) ui->pushButton_4->setChecked(vrai);
 }
 
 void MainWindow::line2(bool vrai)
 {
-    ui->pushButton_5->setChecked(vrai);
-    ui->pushButton_6->setChecked(vrai);
-    ui->pushButton_7->setChecked(vrai);
-    ui->pushButton_8->setChecked(vrai);
-    ui->pushButton_9->setChecked(vrai);
+    if(visibles[5]) ui->pushButton_5->setChecked(vrai);
+    if(visibles[6]) ui->pushButton_6->setChecked(vrai);
+    if(visibles[7]) ui->pushButton_7->setChecked(vrai);
+    if(visibles[8]) ui->pushButton_8->setChecked(vrai);
+    if(visibles[9]) ui->pushButton_9->setChecked(vrai);
 }
 
 void MainWindow::line3(bool vrai)
 {
-    ui->pushButton_10->setChecked(vrai);
-    ui->pushButton_11->setChecked(vrai);
-    ui->pushButton_12->setChecked(vrai);
-    ui->pushButton_13->setChecked(vrai);
-    ui->pushButton_14->setChecked(vrai);
+    if(visibles[10]) ui->pushButton_10->setChecked(vrai);
+    if(visibles[11]) ui->pushButton_11->setChecked(vrai);
+    if(visibles[12]) ui->pushButton_12->setChecked(vrai);
+    if(visibles[13]) ui->pushButton_13->setChecked(vrai);
+    if(visibles[14]) ui->pushButton_14->setChecked(vrai);
 }
 
 void MainWindow::line4(bool vrai)
 {
-    ui->pushButton_15->setChecked(vrai);
-    ui->pushButton_16->setChecked(vrai);
-    ui->pushButton_17->setChecked(vrai);
-    ui->pushButton_18->setChecked(vrai);
-    ui->pushButton_19->setChecked(vrai);
+    if(visibles[15]) ui->pushButton_15->setChecked(vrai);
+    if(visibles[16]) ui->pushButton_16->setChecked(vrai);
+    if(visibles[17]) ui->pushButton_17->setChecked(vrai);
+    if(visibles[18]) ui->pushButton_18->setChecked(vrai);
+    if(visibles[19]) ui->pushButton_19->setChecked(vrai);
 }
 
 void MainWindow::line5(bool vrai)
 {
-    ui->pushButton_20->setChecked(vrai);
-    ui->pushButton_21->setChecked(vrai);
-    ui->pushButton_22->setChecked(vrai);
-    ui->pushButton_23->setChecked(vrai);
+    if(visibles[20]) ui->pushButton_20->setChecked(vrai);
+    if(visibles[21]) ui->pushButton_21->setChecked(vrai);
+    if(visibles[22]) ui->pushButton_22->setChecked(vrai);
+    if(visibles[23]) ui->pushButton_23->setChecked(vrai);
 }
 void MainWindow::raz()
 {
@@ -440,6 +440,10 @@ void MainWindow::writeSettings()
     settings.setValue("msg3", messagesOsc[3]);
     settings.setValue("msg4", messagesOsc[4]);
     settings.setValue("msg5", messagesOsc[5]);
+    settings.setValue("msg6", messagesOsc[6]);
+    settings.setValue("msg7", messagesOsc[7]);
+    settings.setValue("msg8", messagesOsc[8]);
+    settings.setValue("msg9", messagesOsc[9]);
 
     settings.setValue("name0", namesSlider[0]);
     settings.setValue("name1", namesSlider[1]);
@@ -447,6 +451,11 @@ void MainWindow::writeSettings()
     settings.setValue("name3", namesSlider[3]);
     settings.setValue("name4", namesSlider[4]);
     settings.setValue("name5", namesSlider[5]);
+    settings.setValue("name6", namesSlider[6]);
+    settings.setValue("name7", namesSlider[7]);
+    settings.setValue("name8", namesSlider[8]);
+    settings.setValue("name9", namesSlider[9]);
+
     for (int i=0; i<10 ; i++)
     {
     settings.setValue("vS"+QString::number(i), visiblesSliders[i]);
@@ -562,16 +571,18 @@ void MainWindow::maj()
     {
     selectionCh[i] =  dial->spinList->at(i)->value();
     group->button(i)->setText(QString::number(selectionCh[i]));
+    visibles[i] = dial->checkList->at(i)->checkState();
+    group->button(i)->setVisible(visibles[i]);
+    if (!visibles[i]) selection[i]=false;
     }
 
-    for (int i=0 ; i<6 ; i++)
+    for (int i=0 ; i<10 ; i++)
     {
     messagesOsc[i] = dial->lineList->at(i)->text();
-    }
-
-    for (int i=0 ; i<6 ; i++)
-    {
     namesSlider[i] = dial->lineTxtList->at(i)->text();
+    visiblesSliders[i] = dial->checkSliderList->at(i)->checkState();
+    groupDeSliders->at(i)->setVisible(visiblesSliders[i]);
+    groupDeLabelSlid->at(i)->setVisible(visiblesSliders[i]);
     }
 
     ui->label_1->setText(namesSlider[0]);
@@ -585,19 +596,6 @@ void MainWindow::maj()
     ui->label_9->setText(namesSlider[8]);
     ui->label_10->setText(namesSlider[9]);
 
-    for (int i=0; i<10 ; i++)
-    {
-    visiblesSliders[i] = dial->checkSliderList->at(i)->checkState();
-    groupDeSliders->at(i)->setVisible(visiblesSliders[i]);
-    groupDeLabelSlid->at(i)->setVisible(visiblesSliders[i]);
-    }
-
-
-    for (int i=0; i<24 ; i++)
-    {
-    visibles[i] = dial->checkList->at(i)->checkState();
-    group->button(i)->setVisible(visibles[i]);
-    }
 
     for (int j=0; j<4 ; j++)
     {
@@ -610,4 +608,5 @@ void MainWindow::maj()
     else  {groupDeGroupe->at(4)->setVisible(true);}
 
     writeSettings();
+    reset();
 }

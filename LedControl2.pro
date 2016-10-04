@@ -19,8 +19,7 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     oscpkt.hh \
-    dialogno.h \
-    rtmidi.h
+    dialogno.h
 
 FORMS    += mainwindow.ui \
     dialogno.ui
